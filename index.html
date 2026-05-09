@@ -8,7 +8,427 @@
 </head>
 <body>
 	<h1 style="color:green">Hello World</h1>
-	<p>I enjoy this world so much I can't even tell you.</p>
+	<p>I enjoy this world so much I  even tell you.</p>
 	<h2>Bye World</h2>
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Portfolio Website</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      line-height:1.6;
+    }
+
+    header{
+      width:100%;
+      background:#111827;
+      padding:15px 8%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    .menu-btn{
+      display:none;
+      font-size:30px;
+      cursor:pointer;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 8% 50px;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:55px;
+      margin-bottom:15px;
+    }
+
+    .hero-text span{
+      color:#38bdf8;
+    }
+
+    .hero-text p{
+      margin-bottom:20px;
+      color:#cbd5e1;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 25px;
+      background:#38bdf8;
+      color:black;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+    }
+
+    .hero-img{
+      flex:1;
+      min-width:280px;
+      text-align:center;
+    }
+
+    .hero-img img{
+      width:320px;
+      max-width:100%;
+      border-radius:50%;
+      border:5px solid #38bdf8;
+    }
+
+    /* ABOUT */
+
+    section{
+      padding:80px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:40px;
+      color:#38bdf8;
+    }
+
+    .about p{
+      text-align:center;
+      max-width:800px;
+      margin:auto;
+      color:#cbd5e1;
+    }
+
+    /* SKILLS */
+
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+    }
+
+    .skill-box{
+      background:#1e293b;
+      padding:30px;
+      border-radius:12px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .skill-box:hover{
+      transform:translateY(-8px);
+      background:#334155;
+    }
+
+    /* PROJECTS */
+
+    .projects-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .project-card{
+      background:#1e293b;
+      border-radius:12px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:scale(1.03);
+    }
+
+    .project-card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:20px;
+    }
+
+    /* CONTACT */
+
+    .contact form{
+      max-width:600px;
+      margin:auto;
+    }
+
+    .contact input,
+    .contact textarea{
+      width:100%;
+      padding:15px;
+      margin-bottom:15px;
+      border:none;
+      border-radius:8px;
+      outline:none;
+    }
+
+    .contact button{
+      width:100%;
+      border:none;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#111827;
+      color:#94a3b8;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      .nav-links{
+        position:absolute;
+        top:70px;
+        right:0;
+        background:#111827;
+        width:220px;
+        flex-direction:column;
+        padding:20px;
+        display:none;
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .hero-text h1{
+        font-size:40px;
+      }
+
+      .hero{
+        text-align:center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <nav>
+      <div class="logo">Portfolio</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="menu-btn" id="menuBtn">
+        ☰
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+      <h1>Hello, I'm <span>Sahil</span></h1>
+      <h2>Web Developer</h2>
+      <p>
+        I create beautiful and responsive websites using HTML, CSS and JavaScript.
+      </p>
+
+      <a href="#" class="btn">Download CV</a>
+    </div>
+
+    <div class="hero-img">
+      <img src="https://picsum.photos/400" alt="Profile">
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <p>
+      I am a passionate front-end developer who loves building modern and responsive websites. 
+      I enjoy learning new technologies and improving my coding skills every day.
+    </p>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2 class="section-title">My Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="skill-box">
+        <h3>HTML</h3>
+      </div>
+
+      <div class="skill-box">
+        <h3>CSS</h3>
+      </div>
+
+      <div class="skill-box">
+        <h3>JavaScript</h3>
+      </div>
+
+      <div class="skill-box">
+        <h3>Responsive Design</h3>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="section-title">Projects</h2>
+
+    <div class="projects-container">
+
+      <div class="project-card">
+        <img src="https://picsum.photos/500/300?1">
+
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+          <p>Responsive portfolio design using HTML CSS JavaScript.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://picsum.photos/500/300?2">
+
+        <div class="project-content">
+          <h3>Calculator App</h3>
+          <p>Simple calculator created with JavaScript.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://picsum.photos/500/300?3">
+
+        <div class="project-content">
+          <h3>Weather App</h3>
+          <p>Modern weather application UI design.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <h2 class="section-title">Contact Me</h2>
+
+    <form>
+
+      <input type="text" placeholder="Your Name" required>
+
+      <input type="email" placeholder="Your Email" required>
+
+      <textarea rows="5" placeholder="Your Message"></textarea>
+
+      <button class="btn">Send Message</button>
+
+    </form>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Sahil Portfolio Website</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.onclick = () => {
+      navLinks.classList.toggle("active");
+    };
+
+  </script>
+
+</body>
+	</html>
 </body>
 </html>
